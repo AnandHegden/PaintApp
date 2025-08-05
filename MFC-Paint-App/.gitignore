@@ -1,0 +1,28 @@
+# Visual Studio specific files
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+
+# IntelliSense and Precompiled Headers
+*.ipch
+*.pch
+*.db
+
+# Build Artifacts
+Debug/
+Release/
+x64/Debug/
+x64/Release/
+*.exe
+*.dll
+*.pdb
+*.obj
+*.tlog
+*.idb
+
+# Cache
+*.log
+*.cache
+*.sdf
+*.VC.db
