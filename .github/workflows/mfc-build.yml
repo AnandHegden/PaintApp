@@ -18,10 +18,13 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
 
       - name: Build MFC Paint App
-        run: msbuild MFCPaintApp.sln /p:Configuration=Release /p:Platform="x64"
+        run: |
+          cd MFC-Paint-App
+          msbuild MFCPaintApp.sln /p:Configuration=Release /p:Platform="x64"
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4  # UPDATED HERE!
+        uses: actions/upload-artifact@v4
         with:
           name: MFC-Paint-Build
           path: '**\Release\*.exe'
+
