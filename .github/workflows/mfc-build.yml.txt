@@ -1,0 +1,27 @@
+name: MFC Paint App CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest  # If this fails, we'll switch to self-hosted runner.
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build MFC Paint App
+        run: msbuild MFCPaintApp.sln /p:Configuration=Release /p:Platform="x64"
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: MFC-Paint-Build
+          path: '**\Release\*.exe'
