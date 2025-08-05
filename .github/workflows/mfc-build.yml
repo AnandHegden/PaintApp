@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # If this fails, we'll switch to self-hosted runner.
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Source Code
@@ -21,7 +21,7 @@ jobs:
         run: msbuild MFCPaintApp.sln /p:Configuration=Release /p:Platform="x64"
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # UPDATED HERE!
         with:
           name: MFC-Paint-Build
           path: '**\Release\*.exe'
